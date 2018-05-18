@@ -4,7 +4,7 @@
   "description": "detect when a user is idle on a page",
   "main": "index.js",
   "dependencies": {
-    "xtend": "2.0.3"
+    "xtend": "^4.0.1"
   },
   "devDependencies": {
     "synthetic-dom-events": "~0.0.0",
