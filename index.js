@@ -148,19 +148,19 @@ function toggleState(state) {
 // TODO (shtylman) detect at startup to avoid if during runtime?
 var attach = function(element, event, fn) {
     if (element.addEventListener) {
-        element.addEventListener(event, fn, false);
+        element.addEventListener(event, function() {window.requestAnimationFrame(fn), false);
     }
     else if (element.attachEvent) {
-        element.attachEvent('on' + event, fn);
+        element.attachEvent('on' + event, function() {window.requestAnimationFrame(fn));
     }
 };
 
 var detach = function(element, event, fn) {
     if (element.removeEventListener) {
-        element.removeEventListener(event, fn, false);
+        element.removeEventListener(event, function() {window.requestAnimationFrame(fn), false);
     }
     else if (element.detachEvent) {
-        element.detachEvent('on' + event, fn);
+        element.detachEvent('on' + event, function() {window.requestAnimationFrame(fn));
     }
 };
 
