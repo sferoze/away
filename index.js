@@ -49,7 +49,7 @@ proto.start = function() {
     var state = self.state;
     var element = self.element;
 
-    function handler(ev) {
+    var handler = _.throttle(function (ev) {
         // clear any current timouet
         clearTimeout(state.timer_id);
 
@@ -62,7 +62,7 @@ proto.start = function() {
         }
 
         state.timer_id = setTimeout(state.state_fn, state.timeout);
-    }
+    }, 1000)
 
     // to remove later
     state.handler = handler;
